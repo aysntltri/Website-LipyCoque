@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LipyCoque - Produk</title>
+<link rel="stylesheet" href="aku1.css">
+</head>
+<body>
+  <header>
+    <div class="logo" tabindex="0" aria-label="LipyCaque Logo">LipyCoque</div>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="produkk.html" class="active" aria-current="page">Produk</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+        <li><a href="contact.html">Kontak</a></li>
+      </ul>
+      <div
+        class="hamburger"
+        id="hamburger"
+        aria-label="Menu"
+        aria-expanded="false"
+        role="button"
+        tabindex="0"
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="floating-hearts" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+ 
+  <main>
+    <h1>Koleksi LipyCoque</h1>
+    <div class="products">
+        <h2>Atasan Lengan Pendek</h2>
+        <!-- Added title here -->
+      </div>
+    <div class="products-grid" role="list">
+      <article class="product-card" role="listitem" tabindex="0" aria-label="Pastel Pink Blouse, Elegant and comfy, 250 thousand Rupiah">
+        <img src="img/baju1.jpg" alt="Pastel Pink Blouse" class="product-image" />
+        <h2 class="product-name">Pastel Pink</h2>
+        <div class="product-subtitle">Elegant and comfy</div>
+        <div class="product-price">Rp250.000</div>
+        <button class="btn-add" aria-label="Add Pastel Pink Blouse to cart">Tambah ke Keranjang</button>
+      </article>
+      <article class="product-card" role="listitem" tabindex="0" aria-label="Mint Green Dress, Fresh & playful, 350 thousand Rupiah">
+        <img src="img/baju2.jpg" alt="Mint Green Dress" class="product-image" />
+        <h2 class="product-name">Blue</h2>
+        <div class="product-subtitle">Fresh &amp; playful</div>
+        <div class="product-price">Rp350.000</div>
+        <button class="btn-add" aria-label="Add Mint Green Dress to cart">Tambah ke Keranjang</button>
+      </article>
+      <article class="product-card" role="listitem" tabindex="0" aria-label="Lavender Cardigan, Soft and stylish, 280 thousand Rupiah">
+        <img src="img/baju3.jpg" alt="Lavender Cardigan" class="product-image" />
+        <h2 class="product-name">Peach</h2>
+        <div class="product-subtitle">Soft and stylish</div>
+        <div class="product-price">Rp280.000</div>
+        <button class="btn-add" aria-label="Add Lavender Cardigan to cart">Tambah ke Keranjang</button>
+      </article>
+      <article class="product-card" role="listitem" tabindex="0" aria-label="Peach T-shirt, Casual everyday wear, 180 thousand Rupiah">
+        <img src="img/baju4.jpg" alt="Peach T-shirt" class="product-image" />
+        <h2 class="product-name">Mint Green Dress</h2>
+        <div class="product-subtitle">Casual everyday wear</div>
+        <div class="product-price">Rp180.000</div>
+        <button class="btn-add" aria-label="Add Peach T-shirt to cart">Tambah ke Keranjang</button>
+      </article>
+      <section
+        class="products"
+        aria-label="Daftar Produk Pakaian"
+        id="products"
+      >
+      <div class="products">
+        <h2>Dress</h2>
+        <!-- Added title here -->
+      </div>
+      <article class="product-card" role="listitem" tabindex="0" aria-label="Sky Blue Skirt, Flowing comfort, 300 thousand Rupiah">
+        <img src="img/baju5.jpg" alt="Sky Blue Skirt" class="product-image" />
+        <h2 class="product-name">Pink Dress</h2>
+        <div class="product-subtitle">Flowing comfort</div>
+        <div class="product-price">Rp300.000</div>
+        <button class="btn-add" aria-label="Add Sky Blue Skirt to cart">Tambah ke Keranjang</button>
+      </article>
+    
+    </section>
+    </div>
+  
+  </main>
+
+  <footer>
+    >&copy; 2025 Lipycoque - Stay sweet, stay pastel! 🌷
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.querySelector("nav ul");
+
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("open");
+      const isOpen = navMenu.classList.contains("open");
+      hamburger.setAttribute("aria-expanded", isOpen);
+    });
+
+    // Optional: Add a simple click effect on 'Add to Cart' buttons
+    const addButtons = document.querySelectorAll(".btn-add");
+    addButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.textContent = "✓ Ditambahkan";
+        btn.disabled = true;
+        btn.style.backgroundColor = "#d96a8a";
+        setTimeout(() => {
+          btn.textContent = "Tambah ke Keranjang";
+          btn.disabled = false;
+          btn.style.backgroundColor = "#ff71a9";
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
+

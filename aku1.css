@@ -1,0 +1,379 @@
+
+  @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap");
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    background: #ffc1db;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #52294b;
+    overflow-x: hidden;
+  }
+
+  /* Floating hearts */
+  .floating-hearts {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .floating-hearts span {
+    position: absolute;
+    bottom: -40px;
+    width: 20px;
+    height: 20px;
+    background: #ff4da6;
+    opacity: 0.8;
+    border-radius: 50%;
+    animation: floatUp ease-in infinite;
+    box-shadow: 0 0 6px #ff4da6aa;
+  }
+
+  .floating-hearts span:nth-child(1) {
+    left: 10%;
+    width: 18px;
+    height: 18px;
+    animation-duration: 9s;
+    animation-delay: 0s;
+    transform: rotate(45deg);
+  }
+  .floating-hearts span:nth-child(2) {
+    left: 25%;
+    width: 24px;
+    height: 24px;
+    animation-duration: 7s;
+    animation-delay: 2s;
+    transform: rotate(-30deg);
+  }
+  .floating-hearts span:nth-child(3) {
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    animation-duration: 10s;
+    animation-delay: 1s;
+    transform: rotate(15deg);
+  }
+  .floating-hearts span:nth-child(4) {
+    left: 75%;
+    width: 22px;
+    height: 22px;
+    animation-duration: 8s;
+    animation-delay: 3s;
+    transform: rotate(-45deg);
+  }
+  .floating-hearts span:nth-child(5) {
+    left: 90%;
+    width: 19px;
+    height: 19px;
+    animation-duration: 9.5s;
+    animation-delay: 0.5s;
+    transform: rotate(60deg);
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-120vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Header */
+  header {
+    background: #ff71a9;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 6px 15px #ffafd5a6;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    user-select: none;
+    height: 70px;
+  }
+
+  .logo {
+    font-family: "Pacifico", cursive;
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: #fff;
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 5px #b23d6d;
+    cursor: default;
+    position: relative;
+  }
+  .logo::after {
+    content: "♥";
+    position: absolute;
+    top: -10px;
+    right: -28px;
+    font-size: 1.6rem;
+    color: #ffdfeb;
+    animation: pulseHeart 2s infinite ease-in-out;
+    transform-origin: center;
+  }
+
+  @keyframes pulseHeart {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.4);
+      opacity: 1;
+    }
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+
+  nav ul li a {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 18px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  nav ul li a:hover,
+  nav ul li a:focus {
+    background: #ffb6d6;
+    box-shadow: 0 8px 16px #ff9ec9ab;
+    color: #581f3d;
+    outline: none;
+  }
+
+  nav ul li a.active {
+    background: #fff0f6;
+    color: #d12b7a;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 25px;
+    gap: 5px;
+  }
+
+  .hamburger div {
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Responsive Navigation */
+  @media (max-width: 768px) {
+    nav ul {
+      position: fixed;
+      top: 70px;
+      right: 0;
+      background-color: #ff6f91;
+      height: calc(100% - 70px);
+      width: 230px;
+      flex-direction: column;
+      padding: 2rem;
+      gap: 1.5rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      border-radius: 0 0 0 10px;
+      z-index: 20;
+    }
+
+    nav ul.open {
+      transform: translateX(0);
+    }
+
+    .hamburger {
+      display: flex;
+    }
+  }
+
+  /* Main container */
+  main {
+    flex-grow: 1;
+    max-width: 1000px;
+    margin: 50px auto 80px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  main h1 {
+    font-family: "Pacifico", cursive;
+    color: #d42365;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  /* Product Grid: fixed 4 columns on desktop */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
+
+  /* On smaller screens switch to fewer columns */
+  @media (max-width: 1024px) {
+    .products-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .products h2 {
+        font-size: 2rem; /* Adjust size as needed */
+        color: #ff6f91; /* Soft pastel pink */
+        margin-bottom: 1rem; /* Space below the title */
+        font-weight: 700; /* Bold font */
+        text-transform: uppercase; /* Uppercase for emphasis */
+        border-bottom: 2px solid #ffabb3; /* Optional underline */
+        padding-bottom: 0.5rem; /* Space between text and underline */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        letter-spacing: 1.5px;
+      }
+      .products1 h2 {
+        font-size: 2rem; /* Adjust size as needed */
+        color: #ff6f91; /* Soft pastel pink */
+        margin-bottom: 1rem; /* Space below the title */
+        font-weight: 700; /* Bold font */
+        text-transform: uppercase; /* Uppercase for emphasis */
+        border-bottom: 2px solid #ffabb3; /* Optional underline */
+        padding-bottom: 0.5rem; /* Space between text and underline */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        letter-spacing: 1.5px;
+      }
+  /* Product Card */
+  .product-card {
+    background: #fff0fa;
+    border-radius: 24px;
+    box-shadow: 0 10px 18px #ffa3ce77;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px #ff7f9fdd;
+  }
+
+  /* Product Image */
+  .product-image {
+    width: 100%;
+    height: 190px;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-bottom: 16px;
+  }
+
+  /* Product Name */
+  .product-name {
+    font-weight: 700;
+    color: #d23f74;
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+    min-height: 48px; /* consistent height */
+  }
+
+  /* Product Subtitle */
+  .product-subtitle {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #ce8abf;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+
+  /* Product Price */
+  .product-price {
+    font-weight: 600;
+    color: #aa3775;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Add to Cart Button */
+  .btn-add {
+    background: #ff71a9;
+    color: #fff;
+    border: none;
+    border-radius: 9999px;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 8px 18px #ff87b1cc;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  .btn-add:hover,
+  .btn-add:focus {
+    background: #ff4d89;
+    box-shadow: 0 12px 28px #ef3a7ccc;
+    outline: none;
+  }
+  .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 18px 10px;
+    font-size: 0.95rem;
+    color: #74294a;
+    background: #ff71a9dd;
+    font-weight: 600;
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+    box-shadow: 0 -12px 22px #ff8fc6cc;
+    user-select: none;
+  }
+
+  /* Responsive typography */
+  @media (max-width: 600px) {
+    main h1 {
+      font-size: 2.4rem;
+    }
+  }
